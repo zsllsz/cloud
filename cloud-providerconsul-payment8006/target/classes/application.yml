@@ -1,0 +1,14 @@
+server:
+  port: 8005
+  
+spring:
+  application:
+    name: consul-provider-payment
+  #consul相关配置
+  cloud:
+    consul:
+      host: 192.168.0.104
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        register-health-check: false

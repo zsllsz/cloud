@@ -1,0 +1,15 @@
+server:
+  port: 3377
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.106:8848
+      config:
+        server-addr: 192.168.0.106:8848
+        file-extension: yaml #指定yaml格式的配置，就是对应以前用config时GitHub上的配置文件
+        namespace: 4d4b4c98-2746-4ff7-8ce9-eb2837db456c
+        group: DEV_GROUP
+        

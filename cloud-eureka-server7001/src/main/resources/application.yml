@@ -1,0 +1,25 @@
+server:
+  port: 7001
+
+# 单机版的写法  
+eureka:
+  instance:
+    hostname: localhost #eureka服务端的实例名称
+  client:
+    register-with-eureka: false # false表示不向服务中心注册自己
+    fetch-registry: false # false表示自己就是注册中心，维护服务实例，而不去检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ # 向eureka查询和注册服务都通过这个地址
+
+# 集群的写法
+#eureka:
+#  instance:
+#    hostname: eureka7001.com #eureka服务端的实例名称
+#  client:
+#    register-with-eureka: false # false表示不向服务中心注册自己
+#    fetch-registry: false # false表示自己就是注册中心，维护服务实例，而不去检索服务
+#    service-url:
+#      defaultZone: http://eureka7002.com:7002/eureka/ # 向eureka查询和注册服务都通过这个地址
+#  server:
+#    enable-self-preservation: false #关闭自我保护
+#    eviction-interval-timer-in-ms: 2000 #检测心跳的时间间隔

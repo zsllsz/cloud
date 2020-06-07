@@ -1,0 +1,29 @@
+server:
+  port: 8401
+spring:
+  application:
+    name: cloudalibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.106:8848
+    sentinel:
+      transport: 
+        dashboard: 192.168.0.106:8080
+        client-ip: 192.168.0.104
+        port: 8719 # 默认8719，如果被占用会依次加1，直至找到没有被占用的端口
+      datasource: # 将规则配置进nacos
+        dsl: 
+          nacos:
+            server-addr: 192.168.0.106:8848
+            data-id: cloudalibaba-sentinel-service
+            group-id: DEFAULT_GROUP
+            rule-type: flow
+            data-type: json
+# actuator图形化配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"

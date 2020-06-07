@@ -1,0 +1,19 @@
+server:
+  port: 80
+  
+eureka:
+  client:
+    register-with-eureka: false #不把该项目注册进eureka了
+    service-url:
+       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+       
+ribbon:
+  # 建立连接后从服务器获取可用资源的时间
+  ReadTimeout: 5000
+  # 建立连接所有的时间
+  ConnectTimeout: 5000
+  
+logging:
+  level:
+    # openfeign日志以什么级别监控哪个接口
+    com.zhusl.springcloud.service.PaymentFeignService: debug

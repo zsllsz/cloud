@@ -1,0 +1,22 @@
+server:
+  port: 80
+  
+spring:
+  application:
+    name: cloud-order-service #提交到注册中心的微服务名称
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1 # 采样率值介于0和1之间，1表示全部采集
+  
+eureka:
+  client:
+    register-with-eureka: true # 将自己注册进eureka，不注册就false
+    fetch-registry: true # 从eureka抓取自己的注册信息
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka #eureka server所在的主机和端口
+#       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: order80
+    prefer-ip-address: true #显示IP信息

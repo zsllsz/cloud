@@ -1,0 +1,16 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.106:8848
+# 端点启动和暴露(这时actuator的功能，学springcloud config时也配置过)
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
